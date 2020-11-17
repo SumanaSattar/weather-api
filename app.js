@@ -1,6 +1,7 @@
 const api ={
     key:"1e9ed597558a664923740217b013d342",
-    base:"api.openweathermap.org/data/2.5/"
+    base:"http://api.openweathermap.org/data/2.5/",
+    proxy:"https://cors-anywhere.herokuapp.com/"
 } 
 const cityName= document.querySelector("#cityName");
 cityName.addEventListener('keypress',setCity);
@@ -12,8 +13,8 @@ function setCity(evt) {
     }
 }
 function getResults(query) {
-    console.log(query);
-    fetch('${api.base}weather?q=${query}&units=metric&APPID=${api.key}')
+    
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=1e9ed597558a664923740217b013d342')//'${api.proxy}${api.base}weather?q=${query}&APPID=${api.key}')
       .then(weather => {
           return weather.json();
       }).then(displayResults);
