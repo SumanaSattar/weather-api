@@ -1,6 +1,6 @@
 const api ={
     key:"1e9ed597558a664923740217b013d342",
-    base:"http://api.openweathermap.org/data/2.5/",
+    base:"https://api.openweathermap.org/data/2.5/",
     proxy:"https://cors-anywhere.herokuapp.com/"
 } 
 const cityName= document.querySelector("#cityName");
