@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(46, 48, 48);
+    color:whitesmoke;
+}
+.container{
+    display:flex;
+    justify-self: center;
+    margin:10rem;
+
+}
+div{
+    text-align: center;
+
+}
+.pad {
+    padding:2rem;
+}
