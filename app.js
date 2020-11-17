@@ -18,7 +18,7 @@ function setCity(evt) {
     }
 }
 function getResults(query) {
-     
+     console.log(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`);
    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
      .then(weather => {
          return weather.json();
