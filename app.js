@@ -4,6 +4,11 @@ const api ={
     proxy:"https://cors-anywhere.herokuapp.com/"
 } 
 const cityName= document.querySelector("#cityName");
+const city=document.querySelector(".city");
+const temp=document.querySelector(".temp");
+const dayCondition=document.querySelector(".dayCondition");
+const highLow=document.querySelector(".highLow");
+
 cityName.addEventListener('keypress',setCity);
 
 function setCity(evt) {
@@ -13,12 +18,19 @@ function setCity(evt) {
     }
 }
 function getResults(query) {
-    
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=1e9ed597558a664923740217b013d342')//'${api.proxy}${api.base}weather?q=${query}&APPID=${api.key}')
-      .then(weather => {
-          return weather.json();
+     
+   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+     .then(weather => {
+         return weather.json();
       }).then(displayResults);
+
 }
 function displayResults(weather) {
-    console.log(weather);
+    city.innerHTML=`${weather.name},${weather.sys.country}`;
+    temp.innerHTML=`${Math.round(weather.main.temp)}<span>°C</span>`;
+    dayCondition.innerHTML=weather.weather[0].main;
+    highLow.innerHTML=`${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
+
+
+
 }
